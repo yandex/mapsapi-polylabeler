@@ -1,2 +1,6 @@
 node_modules/
-index.html
+build
+cases/
+.idea
+polylabel/
+npm-debug.log
