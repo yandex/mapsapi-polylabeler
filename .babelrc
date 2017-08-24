@@ -1,0 +1,63 @@
+{
+    "sourceMaps": true,
+    "sourceRoot": "src/",
+    "presets": [
+        [
+            "env",
+            {
+                "targets": [
+                    "last 5 version",
+                    "ie >= 8",
+                    "safari >= 7"
+                ],
+                "loose": true,
+                "spec": false,
+                "strict": false,
+                "noInterop": true,
+                "modules": false
+            }
+        ]
+    ],
+    "plugins": [
+        [
+            "transform-class-properties",
+            {
+                "spec": false
+            }
+        ],
+        [
+            "./builder/plugin-transform-ym-helpers",
+            {
+                "overrideHelpers": {
+                    "inheritsLoose": "util.defineClass",
+                    "inherits": "util.defineClass",
+                    "extends": "util.extend"
+                },
+                "replaceGlobals": {
+                    "Object.assign": "util.extend",
+                    "Array.isArray": [
+                        "util.array",
+                        "isArray"
+                    ],
+                    "Object.keys": "util.objectKeys",
+                    "WeakMap": "util.WeakMap",
+                    "Promise": [
+                        "vow",
+                        "Promise"
+                    ]
+                }
+            }
+        ],
+        [
+            "babel-plugin-transform-es2015-modules-ym",
+            {
+                "moduleBase": "polylabel",
+                "sourceDir": "src",
+                "ymGlobal": "ymaps",
+                "sourceMappings": {
+                    "api": ""
+                }
+            }
+        ]
+    ]
+}
