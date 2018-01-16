@@ -42,7 +42,6 @@ export default class PolylabelCollection extends PBase {
         this._firstCalculatePolygons().then(() => {
             this._initMapListeners();
             this._initPolygonCollectionListeners();
-            //this._initPolygonsListeners();
             this._initLabelCollectionListeners();
         });
     }
@@ -178,12 +177,6 @@ export default class PolylabelCollection extends PBase {
             );
         });
     }
-
-    /* _initPolygonsListeners() {
-        this._polygonsCollection.each(polygon => {
-            this._initPolygonListener(polygon);
-        });
-    } */
 
     /**
      * Создает слушатели событий на полигон

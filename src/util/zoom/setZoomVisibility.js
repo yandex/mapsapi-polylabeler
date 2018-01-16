@@ -38,7 +38,7 @@ function analyze(type, map, zoom, currVisible, layout, center,
         polygonCoordinates,
         size,
         labelOffset,
-        permissibleInaccuracyOfVisibility
+        type === 'dot' ? 0 : permissibleInaccuracyOfVisibility
     );
 
     return {
