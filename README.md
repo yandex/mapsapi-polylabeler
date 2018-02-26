@@ -29,11 +29,11 @@ Simple example
 
 ```js
 ymaps.ready(['polylabel.create']).then(function () {
-    var map = new ymaps.Map('map', {
+    const map = new ymaps.Map('map', {
         center: [65, 81],
         zoom: 5
     });
-    var objectManager = new ymaps.ObjectManager();
+    const objectManager = new ymaps.ObjectManager();
 
     objectManager.add({
 	type: 'Feature',
@@ -329,7 +329,7 @@ Offset in pixels from the current position of the label.
 ```js
 //Set labels offset to the left as 10px and down as 20px
 polygon.options.set({
-        labelCenterCoords: [-10, 20]
+        labelOffset: [-10, 20]
 });
 ```
 

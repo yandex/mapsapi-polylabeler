@@ -70,11 +70,15 @@
                         labelDotCursor: 'pointer',
                         labelPermissibleInaccuracyOfVisibility: 4
                     }));
-                    if (polygon.properties.get('hintContent') === 'Вологодская область') {
+                    const regionName = polygon.properties.get('properties.iso3166');
+                    if (regionName === 'RU-VLG') {
                         polygon.options.set('labelCenterCoords', [59.843133, 39.818510]);
                     }
-                    if (polygon.properties.get('hintContent') === 'Мордовия') {
+                    if (regionName === 'RU-MO') {
                         polygon.options.set('labelCenterCoords', [54.305451, 44.035049]);
+                    }
+                    if (regionName === 'RU-KIR') {
+                        polygon.options.set('labelCenterCoords', [58.225132, 49.481891]);
                     }
                     objectManager.add(transformGOToJSON(polygon, i));
                     i++;

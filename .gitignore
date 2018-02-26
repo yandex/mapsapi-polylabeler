@@ -3,4 +3,7 @@ build
 cases/
 .idea
 polylabel/
+mapsapi-polylabeler/
 npm-debug.log
+._.DS_Store
+.DS_Store
