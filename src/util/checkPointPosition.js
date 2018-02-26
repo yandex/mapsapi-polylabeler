@@ -1,7 +1,7 @@
 /**
-     * Проверка, находится ли точка внутри полигона.
-     * @param {Array[2]} point - Точка.
-     * @param {Array} coords - Координаты полигона.
+     * Check if the point is inside the polygon.
+     * @param {Array[2]} point
+     * @param {Array} coords - Polygon coords.
      */
 export default function isInside(point, coords) {
     let parity = 0;
@@ -18,10 +18,10 @@ export default function isInside(point, coords) {
 }
 
 /**
- * Определяет позицию точки относительно ребра.
- * @param {Array[2]} p - Исследуемая точка.
- * @param {Array[2]} p0 - Первая точка ребра.
- * @param {Array[2]} p1 - Вторая точка ребра.
+ * Determines the position of the point relative to the edge.
+ * @param {Array[2]} p - The investigated point.
+ * @param {Array[2]} p0 - The first point of the edge.
+ * @param {Array[2]} p1 - The second point of the edge.
  */
 function pointClassify(p, p0, p1) {
     const a = pointMinus(p1, p0);
@@ -61,9 +61,9 @@ function pointEquals(p1, p2) {
 }
 
 /**
- * Определяет, положения луча, выпущенного из точки, относительно ребра (Crosses, Affects, Neutral).
- * @param {Arrya[2]} point - Исследуемая точка.
- * @param {Array} edge - Ребро.
+ * Determines the positions of the ray released from the point relative to the edge (Crosses, Affects, Neutral).
+ * @param {Arrya[2]} point - The investigated point.
+ * @param {Array} edge - Edge.
  */
 function edgeType(point, edge) {
     const v = edge[0];

@@ -4,7 +4,7 @@ import getBaseLayoutTemplates from '../util/layoutTemplates/getBaseLayoutTemplat
 import LabelBase from '../LabelBase';
 
 /**
- * Класс подписи полигона для геоколлекции
+ * The label class for the geo-collection
  */
 export default class Label extends LabelBase {
     constructor(map, polygon, parentCollection, polylabel) {
@@ -138,7 +138,7 @@ export default class Label extends LabelBase {
     }
 
     /**
-     * Устанавливает координаты для подписи
+     * Sets the coordinates for the label
      */
     setCoordinates(coords) {
         if (coords.toString() !== this._placemark.label.geometry.getCoordinates().toString()) {
@@ -158,7 +158,7 @@ export default class Label extends LabelBase {
     }
 
     /**
-     * Устанавливает стили для подписи
+     * Sets the styles for the label
      */
     setStyles(data) {
         const styles = this.analyseStyles(data);
@@ -168,7 +168,7 @@ export default class Label extends LabelBase {
     }
 
     /**
-     * Центрирует подпись и создает ей правильный iconShape
+     * Centers the label and creates the correct iconShape
      */
     setOffsetAndIconShape(type, size, offset) {
         const offsetResult = this.analyseOffset(size, offset);

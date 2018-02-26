@@ -1,7 +1,7 @@
 /**
  * @param {*} layout
- * @param {*} className - класс по которому находим элемент
- * @param {*} newClassName - новый класс
+ * @param {*} className - class by which we find the element
+ * @param {*} newClassName - new class
  */
 function add(layout, className, newClassName) {
     const el = getElemByClass(layout, className);
@@ -12,8 +12,8 @@ function add(layout, className, newClassName) {
 
 /**
  * @param {*} layout
- * @param {*} className - класс по которому находим элемент
- * @param {*} removeClassName - удаляемый класс
+ * @param {*} className - class by which we find the element
+ * @param {*} removeClassName - class to remove
  */
 function remove(layout, className, removeClassName) {
     const el = getElemByClass(layout, className);

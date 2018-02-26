@@ -2,7 +2,7 @@ import overlayPlacemark from 'api/overlay.Placemark';
 import GeoObject from 'api/GeoObject';
 
 /**
- * Прокидывает данные в подпись из полигона
+ * Puts the data into a label from the polygon
  */
 export default class LabelPlacemarkOverlay extends overlayPlacemark {
     constructor(geometry, properties, options) {

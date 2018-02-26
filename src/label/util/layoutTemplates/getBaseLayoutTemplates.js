@@ -2,7 +2,7 @@ import labelLayoutTemplate from './labelLayoutTemplate';
 import dotLayoutTemplate from './dotLayoutTemplate';
 
 /**
- * Возвращает базовые обертки над шаблонами
+ * Returns basic wrappers over templates
  */
 export default function () {
     return {

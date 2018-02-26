@@ -23,7 +23,7 @@ export default class LabelData {
         this._label = label;
         this._polygon = polygon;
         this._data = {
-            zoomInfo: {}, // Объект с информацией для каждого зума
+            zoomInfo: {}, // Object with information for each zoom
             autoCenter: [0, 0],
             dotVisible: typeof options.labelDotVisible !== 'boolean' ? true : options.labelDotVisible
         };

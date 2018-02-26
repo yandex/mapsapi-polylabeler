@@ -1,5 +1,6 @@
-// эти функции нужны для трансформации координат полигона, тк есть переходы с 180 на -180,
-// что нарушает работу функции рассчета центра
+// these functions are needed to transform the coordinates of the polygon,
+// because there are transitions from 180 to -180,
+// that violates the function of calculating the center
 const methods = {
     polygon: polygon,
     point: point
@@ -32,7 +33,7 @@ function transformPoint(isPositivePart, key, pointCoords) {
 }
 
 /**
- * Достаем ключ, в котором говорится, к какому из швов ближе
+ * Gets the key, which says which of the seams is closer
  */
 function getKey(p) {
     const arr = [

@@ -1,7 +1,7 @@
 import templateLayoutFactory from 'api/templateLayoutFactory';
 
 /**
- * Создает пользовательские шаблоны
+ * Creates custom templates
  */
 export default function (labelLayout, labelDotLayout) {
     const dotDefault = `<div {% style %}

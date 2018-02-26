@@ -50,7 +50,9 @@ export default class PolylabelBased {
         }
     }
 
-    //Возвращает все опции полигона
+    /**
+     * Returns all polygon options
+     */
     getOptions(polygon) {
         if (this.getPolylabelType() === 'collection') {
             return polygon.options.getAll();
@@ -59,7 +61,9 @@ export default class PolylabelBased {
         }
     }
 
-    //Возвращает опции, которые необходимы для создания подписи
+    /**
+     * Returns the options required to create a label
+     */
     getConfigOptions(polygon) {
         return CONFIG.options.reduce((result, key) => {
             result[key] = this.getPolylabelType() === 'collection' ? polygon.options.get(key) : polygon.options[key];
@@ -67,7 +71,9 @@ export default class PolylabelBased {
         }, {});
     }
 
-    //Возвращает опции (тип zoomRange), которые необходимы для создания подписи
+    /**
+     * Returns options (type zoomRange) that are required to create a label
+     */
     getConfigZoomRangeOptions(polygon) {
         return CONFIG.zoomRangeOptions.reduce((result, key) => {
             result[key] = this.getPolylabelType() === 'collection' ? polygon.options.get(key) : polygon.options[key];
@@ -75,7 +81,9 @@ export default class PolylabelBased {
         }, {});
     }
 
-    //Возвращает свойства, которые необходимы для создания подписи
+    /**
+     * Returns the properties that are required to create a label
+     */
     getConfigProperties(polygon) {
         return CONFIG.properties.reduce((result, key) => {
             result[key] = this.getPolylabelType() === 'collection' ?
