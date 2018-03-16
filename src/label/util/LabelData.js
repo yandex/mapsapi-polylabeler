@@ -42,10 +42,12 @@ export default class LabelData {
     }
 
     setZoomInfo(zoom, key, value) {
+        zoom = LabelData.zoomRound(zoom);
         this._data.zoomInfo[zoom][key] = value;
     }
 
     getZoomInfo(zoom) {
+        zoom = LabelData.zoomRound(zoom);
         if (zoom || typeof zoom === 'number' && zoom === 0) {
             return this._data.zoomInfo[zoom];
         }
@@ -88,11 +90,13 @@ export default class LabelData {
     }
 
     getCenterCoords(zoom) {
+        zoom = LabelData.zoomRound(zoom);
         return this.parsedOptions.labelCenterCoords &&
             this.parsedOptions.labelCenterCoords[zoom] || this._data.autoCenter;
     }
 
     getStyles(zoom) {
+        zoom = LabelData.zoomRound(zoom);
         const defaults = this.getLabelDefaults(zoom);
         if (defaults) {
             return {
@@ -122,11 +126,13 @@ export default class LabelData {
     }
 
     getVisibility(zoom) {
+        zoom = LabelData.zoomRound(zoom);
         return this.parsedOptions.labelForceVisible && this.parsedOptions.labelForceVisible[zoom] ||
             this._data.zoomInfo[zoom].visible;
     }
 
     getOffset(zoom) {
+        zoom = LabelData.zoomRound(zoom);
         return this.parsedOptions.labelOffset && this.parsedOptions.labelOffset[zoom] || [0, 0];
     }
 
@@ -135,21 +141,29 @@ export default class LabelData {
     }
 
     getPermissibleInaccuracyOfVisibility(zoom) {
+        zoom = LabelData.zoomRound(zoom);
         return this.parsedOptions.labelPermissibleInaccuracyOfVisibility &&
             this.parsedOptions.labelPermissibleInaccuracyOfVisibility[zoom] || 0;
     }
 
     getSize(zoom, type) {
+        zoom = LabelData.zoomRound(zoom);
         return this._data.zoomInfo[zoom][`${type}Size`];
     }
 
     setSize(zoom, type, size) {
+        zoom = LabelData.zoomRound(zoom);
         if (size.height > 0 && size.width > 0) {
             this._data.zoomInfo[zoom][`${type}Size`] = size;
         }
     }
 
+    static zoomRound(z) {
+        return Math.round(z);
+    }
+
     setVisible(zoom, type, layout) {
+        zoom = LabelData.zoomRound(zoom);
         if (this.getSize(zoom, type)) return;
         const zoomData = setZoomVisibility(
             type,
