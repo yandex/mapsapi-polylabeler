@@ -285,7 +285,7 @@ Label font color.
 ```js
 //Set '#FCEA00' as labels font color for all zoom levels
 polygon.options.set({
-        labelForceVisible: '#FCEA00'
+        labelTextColor: '#FCEA00'
 });
 ```
 
