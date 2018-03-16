@@ -3,7 +3,7 @@ import getBaseLayoutTemplates from '../util/layoutTemplates/getBaseLayoutTemplat
 import LabelBase from '../LabelBase';
 
 /**
- * Класс подписи полигона для ObjectManager
+ * The label class for the ObjectManager
  */
 export default class Label extends LabelBase {
     constructor(map, polygon, objectManager, polylabel) {
@@ -96,7 +96,7 @@ export default class Label extends LabelBase {
     }
 
     /**
-     * Обновляет все возможные опции в подписи
+     * Updates all possible options in the label
      */
     updateOptions() {
         ['dot', 'label'].forEach(type => {

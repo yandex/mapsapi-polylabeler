@@ -14,7 +14,7 @@ export default class PolylabelObjectManager extends PBase {
         this._polygonsObjectManager = objectManager;
         this._labelsObjectManager = new ObjectManager();
         this._labelsState = new State();
-        this._userState = new State(); // складывается все что нужно юзеру
+        this._userState = new State(); // everything that needs to be added to the user
         this._polylabelType = 'objectmanager';
         this._init();
     }
@@ -28,7 +28,7 @@ export default class PolylabelObjectManager extends PBase {
     }
 
     /**
-     * Возвращает состояние подписи для указанного полигона
+     * Returns the status of the label for the specified polygon
      */
     getLabelState(polygon) {
         return this._userState.getState(polygon);
@@ -45,7 +45,7 @@ export default class PolylabelObjectManager extends PBase {
     }
 
     /**
-     * Устанавливает данные для подписей для текущего зума
+     * Sets the data for labels for the current zoom
      */
     _calculatePolygons() {
         this._polygonsObjectManager.objects.each(polygon => {
@@ -55,8 +55,8 @@ export default class PolylabelObjectManager extends PBase {
     }
 
     /**
-     * Рассчитывает данные для подписи полигона
-     * Создает подпись
+     * Calculates data for the label signature
+     * Creates a label
      */
     _calculatePolygonLabelData(polygon, isLabelCreated) {
         const options = this.getConfigOptions(polygon);
@@ -72,7 +72,7 @@ export default class PolylabelObjectManager extends PBase {
     }
 
     /**
-     * Анализирует данные о подписи полигона и устанавливает параметры подписи
+     * Analyzes data about the label of the polygon and establishes the parameters of the label
      */
     _setLabelData(polygon, label, visibleState, types) {
         const data = label.setDataByZoom(this._map.getZoom(), types, visibleState);
@@ -94,7 +94,7 @@ export default class PolylabelObjectManager extends PBase {
     }
 
     /**
-     * Слушатель на изменение состояния видимости подписи у полигона
+     * Listener for changing the visibility state of the label at the polygon
      */
     _initLabelStateListener(polygon) {
         const monitor = new Monitor(this._userState.getState(polygon));
@@ -305,7 +305,7 @@ export default class PolylabelObjectManager extends PBase {
     }
 
     /**
-     * Уничтожаем каждую подпись у всех полигонов
+     * Destroy each label from all polygons
      */
     _deleteLabelsOMListeners() {
         this._polygonsObjectManager.objects.each(polygon => {

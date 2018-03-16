@@ -69,7 +69,7 @@ export default class LabelBase {
     }
 
     /**
-     * Формирует все нужные опции для подписи (из полигона, необходимые распарсенные данные и тп)
+     * Forms all the necessary options for the label (from the polygon, the necessary parsed data, etc.)
      */
     getFormedOptionsForPlacemark(type) {
         const cursors = this._data.getLabelCursors();
@@ -82,7 +82,7 @@ export default class LabelBase {
     }
 
     /**
-     * Создаем шаблоны, которые потом будут инклудиться в базовый
+     * Create templates that will then be included in the base
      */
     createLayoutTemplates() {
         const polygonOptions = this.getPolygonOptions();
@@ -102,7 +102,7 @@ export default class LabelBase {
     }
 
     /**
-     * Возвращает значение текущей видимости
+     * Returns the current visibility value
      */
     analyseVisibility(visibleState, visible, dotVisible) {
         let currState = visibleState && visibleState !== 'auto' ? visibleState : visible;
@@ -111,7 +111,7 @@ export default class LabelBase {
     }
 
     /**
-     * Устанавливает видимость для подписи
+     * Sets visibility for a label
      */
     setVisibility(visibleState, visible, dotVisible) {
         const currState = this.analyseVisibility(visibleState, visible, dotVisible);

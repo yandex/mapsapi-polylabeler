@@ -15,7 +15,7 @@ export default class PolylabelCollection extends PBase {
         this._map = map;
         this._labelsCollection = new GeoObjectCollection();
         this._labelsState = new State();
-        this._userState = new State(); // складывается все что нужно юзеру
+        this._userState = new State(); // everything that needs to be added to the user
         this._polygonsCollection = polygonsCollection;
         this._isPolygonParentChange = new WeakMap();
         this._polylabelType = 'collection';
@@ -31,7 +31,7 @@ export default class PolylabelCollection extends PBase {
     }
 
     /**
-     * Возвращает состояние подписи для указанного полигона
+     * Returns the status of the label for the specified polygon
      */
     getLabelState(polygon) {
         return this._userState.getState(polygon);
@@ -68,7 +68,7 @@ export default class PolylabelCollection extends PBase {
     }
 
     /**
-     * Очистка коллекции подписей
+     * Cleaning the collection of labels
      */
     _clearLabelCollection() {
         this._labelsCollection.removeAll();
@@ -78,7 +78,7 @@ export default class PolylabelCollection extends PBase {
     }
 
     /**
-     * Уничтожаем каждую подпись у всех полигонов
+     * Destroy each label from all polygons
      */
     _deleteLabelCollection() {
         this._polygonsCollection.each(polygon => {
@@ -89,7 +89,7 @@ export default class PolylabelCollection extends PBase {
     }
 
     /**
-     * Рассчитывает данные для подписи полигона
+     * Calculates data for the polygon label
      */
     _calculatePolygonLabelData(polygon, isLabelCreated) {
         const options = this.getConfigOptions(polygon);
@@ -105,7 +105,7 @@ export default class PolylabelCollection extends PBase {
     }
 
     /**
-     * Анализирует данные о подписи полигона и устанавливает параметры подписи
+     * Analyzes data about the label of the polygon and establishes the parameters of the label
      */
     _setLabelData(polygon, label, visibleState) {
         const data = label.setDataByZoom(this._map.getZoom(), visibleState);
@@ -119,21 +119,21 @@ export default class PolylabelCollection extends PBase {
     }
 
     /**
-     * Устанавливает статус текущей видимости для полигона (автоматически рассчитанный)
+     * Sets the current visibility status for the polygon (automatically calculated)
      */
     _setCurrentConfiguredVisibility(polygon, type) {
         this._userState.set(polygon, 'currentConfiguredVisibility', type);
     }
 
     /**
-     * Устанавливает статус текущей видимости для полигона
+     * Sets the current visibility status for the polygon
      */
     _setCurrentVisibility(polygon, type) {
         this._userState.set(polygon, 'currentVisibility', ['dot', 'label'].indexOf(type) !== -1 ? type : 'none');
     }
 
     /**
-     * Рассчитывает добавленный в коллекцию новый полигон
+     * Calculates the new polygon added to the collection
      */
     _calculateNewPolygon(polygon) {
         if (polygon.geometry.getType() !== 'Polygon') {
@@ -154,8 +154,8 @@ export default class PolylabelCollection extends PBase {
     }
 
     /**
-     * Сбрасывает состояние visible всех подписей
-     * (на новых зумах оно не конфликтовало с рассчитанными данными, тк у state приоритет выше)
+     * Clears the status of visible all label
+     * (on new zoom it did not conflict with the calculated data, since state priority is higher)
      */
     _clearVisibilityInLabelsState(value) {
         this._polygonsCollection.each(polygon => {
@@ -164,7 +164,7 @@ export default class PolylabelCollection extends PBase {
     }
 
     /**
-     * Слушатель на изменение состояния видимости подписи у полигона
+     * Listener for changing the visibility state of the label at the polygon
      */
     _initUserStateListener(polygon) {
         const monitor = new Monitor(this._userState.getState(polygon));
@@ -179,7 +179,7 @@ export default class PolylabelCollection extends PBase {
     }
 
     /**
-     * Создает слушатели событий на полигон
+     * Creates listener events on the polygon
      */
     _initPolygonListener(polygon) {
         if (polygon.geometry.getType() === 'Polygon') {
@@ -213,7 +213,7 @@ export default class PolylabelCollection extends PBase {
     }
 
     /**
-     * Создает слушатели событий на коллекцию полигонов
+     * Creates listener events for a collection of polygons
      */
     _initPolygonCollectionListeners() {
         this._polygonsCollection.events.add(['add', 'remove'], this._polygonCollectionEventHandler, this);
@@ -239,7 +239,7 @@ export default class PolylabelCollection extends PBase {
     }
 
     /**
-     * Делает проброс событий с подписи на соответствующий полигон
+     * Makes the transfer of events from the label to the corresponding polygon
      */
     _initLabelCollectionListeners() {
         const controller = {
@@ -293,7 +293,7 @@ export default class PolylabelCollection extends PBase {
     }
 
     /**
-     * Удаляет слушатель на изменение состояния видимости подписи у полигона
+     * Removes the listener for changing the visibility state of the label at the polygon
      */
     _deleteLabelStateListener(polygon) {
         const monitor = this._userState.get(polygon, '_labelMonitor');
@@ -301,7 +301,7 @@ export default class PolylabelCollection extends PBase {
     }
 
     /**
-     * Удаляет слушатели событий с коллекции полигонов
+     * Removes listener from the polygon collection
      */
     _deletePolygonCollectionListeners() {
         this._polygonsCollection.events.remove(['add', 'remove'], this._polygonCollectionEventHandler, this);
@@ -315,7 +315,7 @@ export default class PolylabelCollection extends PBase {
     }
 
     /**
-     * Удаляет слушатели событий с полигона
+     * Removes event listeners from a polygon
      */
     _deletePolygonListener(polygon) {
         polygon.events.remove(['optionschange', 'propertieschange'], this._onPolygonOptionsChangeHandler, this);
