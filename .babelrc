@@ -39,7 +39,6 @@
                         "util.array",
                         "isArray"
                     ],
-                    "Object.keys": "util.objectKeys",
                     "WeakMap": "util.WeakMap",
                     "Promise": [
                         "vow",
