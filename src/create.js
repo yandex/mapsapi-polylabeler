@@ -51,6 +51,6 @@ function initStyles() {
             color: rgba(255, 255, 255, 1);
             text-shadow: 0 0 2px rgba(0, 0, 0, 1), 0 0 2px rgba(0, 0, 0, 1);
         }
-    `;
+    `.replace(/\n+\s+/gi, '');
     document.head.appendChild(style);
 }

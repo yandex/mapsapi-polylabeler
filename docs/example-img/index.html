@@ -10,7 +10,7 @@
     Скрипт приходит с неправильным MIME типом и не должен работать, но по факту всё работает
     !!! Лучше так не делать, т.к. не гарантируется ожидаемый результат !!!
     !!! Скачивайте файл себе из github release и подгружайте от себя !!! -->
-    <script src="https://github.com/yandex/mapsapi-polylabeler/releases/download/v1.0.0/polylabel.min.js" type="text/javascript"></script>
+    <script src="https://github.com/yandex/mapsapi-polylabeler/releases/download/v1.0.1/polylabel.min.js" type="text/javascript"></script>
     <style>
         html,
         body {
@@ -61,8 +61,8 @@
                 objectManager.objects.options.set({
                     hintContentLayout: HintLayout
                 });
-                result.geoObjects.each(polygon => {
-                    polygon.options.set(Object.assign({}, polygon.options.getAll(), {
+                result.geoObjects.each(function (polygon) {
+                    polygon.options.set(ymaps.util.extend({}, polygon.options.getAll(), {
                         labelLayout: '<img src="/mapsapi-polylabeler/docs/res/gerbs/{{properties.regionName}}.png" height="50px"/>',
                         fillColor: 'rgba(27, 125, 190, 0.7)',
                         strokeColor: 'rgba(255, 255, 255, 0.8)',
@@ -89,7 +89,7 @@
                 });
                 window.map.geoObjects.add(objectManager);
                 const polylabel = new ymaps.polylabel.create(map, objectManager);
-                objectManager.events.add(['labelmouseenter', 'labelmouseleave'], event => {
+                objectManager.events.add(['labelmouseenter', 'labelmouseleave'], function (event) {
                     const polygon = objectManager.objects.getById(event.get('objectId'));
                     const state = polylabel.getLabelState(polygon);
                     const centerProj = window.map.options.get('projection').toGlobalPixels(state.get('center'), window.map.getZoom());

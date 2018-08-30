@@ -23,7 +23,7 @@ export default function parseZoomData(zoomData) {
             }
             return result;
         }, createDefZoomObj());
-    } else if (valid.includes(typeof zoomData)) {
+    } else if (valid.indexOf(typeof zoomData) !== -1) {
         return createDefZoomObj(zoomData);
     }
 }
