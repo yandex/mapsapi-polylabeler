@@ -12,15 +12,13 @@ It is created for [Yandex.Maps JS API v2.1](https://tech.yandex.ru/maps/doc/jsap
 Loading
 ============
 
-1. Download the module source code from **release** to your CDN.
-2. Download the source code of the ([Area calculation plugin](https://github.com/yandex/mapsapi-area)) to your CDN. (It is used by the present module)
-3. Load both [Yandex.Maps JS API 2.1](https://tech.yandex.ru/maps/doc/jsapi/2.1/quick-start/tasks/quick-start-docpage/) and the Polylabeler Plugin by adding the following code into the **head** section of your page.
+1. Load [Yandex.Maps JS API 2.1](https://tech.yandex.ru/maps/doc/jsapi/2.1/quick-start/tasks/quick-start-docpage/), Polylabeler Plugin and ([Area calculation plugin](https://github.com/yandex/mapsapi-area)) (It is used by the present module) by adding the following code into the **head** section of your page.
 
 ```html
 <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
 <!-- Change my.cdn.tld to your CDN host name -->
-<script src="http://my.cdn.tld/util.calculateArea.min.js" type="text/javascript"></script>
-<script src="http://my.cdn.tld/polylabel.min.js" type="text/javascript"></script>
+<script src="https://yastatic.net/s3/mapsapi-jslibs/area/0.0.1/util.calculateArea.min.js" type="text/javascript"></script>
+<script src="https://yastatic.net/s3/mapsapi-jslibs/polylabeler/1.0.1/polylabel.min.js" type="text/javascript"></script>
 ```
 
 Simple example
