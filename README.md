@@ -2,10 +2,10 @@ Yandex.Maps API Polylabeler Plugin
 ===================
 
 This module allows to set labels inside polygons on the map choosing the suitable position automatically.
-It is created for [Yandex.Maps JS API v2.1](https://tech.yandex.ru/maps/doc/jsapi/2.1/quick-start/tasks/quick-start-docpage/) and based on [Polylabel module](https://github.com/mapbox/polylabel)  
+It is created for [Yandex.Maps JS API v2.1](https://tech.yandex.ru/maps/doc/jsapi/2.1/quick-start/tasks/quick-start-docpage/) and based on [Polylabel module](https://github.com/mapbox/polylabel)
 
-[Demo1](https://yandex.github.io/mapsapi-polylabeler/docs/example-text/)  
-[Demo2](https://yandex.github.io/mapsapi-polylabeler/docs/example-img/)  
+[Demo1](https://yandex.github.io/mapsapi-polylabeler/docs/example-text/)
+[Demo2](https://yandex.github.io/mapsapi-polylabeler/docs/example-img/)
 
 ![example img](https://cdn.rawgit.com/yandex/mapsapi-polylabeler/6e240004/docs/res/example1.png)
 
@@ -80,9 +80,9 @@ ymaps.modules.require(['polylabel.create']).then(function (Polylabel) {
 
 Documentation
 ============
-The module works according to the following principle:  
-Two labels are created for the polygon: a small (**dot**) and a main (**label**).  
-If the main label can't fit into the polygon, the module tries to place a small one;  
+The module works according to the following principle:
+Two labels are created for the polygon: a small (**dot**) and a main (**label**).
+If the main label can't fit into the polygon, the module tries to place a small one;
 If both does not fit, nothing is displayed.
 
 ## Methods
@@ -135,19 +135,19 @@ state.get('center');
 
 
 ## Events
-Labels events can be accessed through polygons.  
-List of events can be found in 
-[GeoObject](https://tech.yandex.ru/maps/doc/jsapi/2.1/ref/reference/GeoObject-docpage/#events-summary).  
-For events handling add listener for the desired event with the prefix **"label"** to 
-[EventManager](https://tech.yandex.ru/maps/doc/jsapi/2.1/ref/reference/event.Manager-docpage/) of [GeoObjectCollection](https://tech.yandex.ru/maps/doc/jsapi/2.1/ref/reference/GeoObjectCollection-docpage/) or [ObjectManager](https://tech.yandex.ru/maps/doc/jsapi/2.1/ref/reference/ObjectManager-docpage/).  
+Labels events can be accessed through polygons.
+List of events can be found in
+[GeoObject](https://tech.yandex.ru/maps/doc/jsapi/2.1/ref/reference/GeoObject-docpage/#events-summary).
+For events handling add listener for the desired event with the prefix **"label"** to
+[EventManager](https://tech.yandex.ru/maps/doc/jsapi/2.1/ref/reference/event.Manager-docpage/) of [GeoObjectCollection](https://tech.yandex.ru/maps/doc/jsapi/2.1/ref/reference/GeoObjectCollection-docpage/) or [ObjectManager](https://tech.yandex.ru/maps/doc/jsapi/2.1/ref/reference/ObjectManager-docpage/).
 
 ```js
-// In this example, we listen to pointing the cursor at the label and  
+// In this example, we listen to pointing the cursor at the label and
 // moving the cursor off the label
 geoObjectCollection.events.add(['labelmouseenter', 'labelmouseleave'], event => {
     // Get the polygon on which the event occured
     var polygon = event.get('target');
-    // Get label state 
+    // Get label state
     var state = polyLabeler.getLabelState(polygon);
     // Change the visibility of the label depending on the type of event
     state.set('visible', event.get('type') === 'labelmouseleave' ? undefined : 'label');
@@ -156,7 +156,7 @@ geoObjectCollection.events.add(['labelmouseenter', 'labelmouseleave'], event => 
 
 
 ## Polygon options
-### The label is controlled via the polygon options  
+### The label is controlled via the polygon options
 **\* Mandatory option**
 
 | Name | Type | Default value |
@@ -175,7 +175,7 @@ geoObjectCollection.events.add(['labelmouseenter', 'labelmouseleave'], event => 
 | [labelOffset](#labeloffset)            | ZoomRange < Array[2]< number >> \|\| Array[2]< number > |  \[0, 0\]              |
 | [labelPermissibleInaccuracyOfVisibility](#labelpermissibleinaccuracyofvisibility) | ZoomRange < number > \|\| number | 0  |
 
-Type **ZoomRange< T >**  object allows to set zoom level or zoom range to specify values for the certain scales.  
+Type **ZoomRange< T >**  object allows to set zoom level or zoom range to specify values for the certain scales.
 **T** - type of value.</br>
 ```js
 // In this example we specify 'someOptions' value for different zoom levels
@@ -198,7 +198,7 @@ someOptions: {
 
 ### labelLayout
 Template that describes the layout of a main label.
-[Based on Template](https://tech.yandex.ru/maps/doc/jsapi/2.1/ref/reference/Template-docpage/)  
+[Based on Template](https://tech.yandex.ru/maps/doc/jsapi/2.1/ref/reference/Template-docpage/)
 ```js
 polygon.options.set({
 	labelLayout: '<div class="foo">bar</div>'
@@ -345,8 +345,14 @@ polygon.options.set({
 ```
 
 **Default behavior:**
-    labelPermissibleInaccuracyOfVisibility: 0  
+    labelPermissibleInaccuracyOfVisibility: 0
 
 
 ## Used libraries
 [https://github.com/mapbox/polylabel](https://github.com/mapbox/polylabel)
+
+## Third party components
+
+The views and conclusions contained in the software and documentation are those
+of the authors and should not be interpreted as representing official policies,
+either expressed or implied, of OpenLayers Contributors.
