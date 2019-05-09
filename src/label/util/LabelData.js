@@ -97,16 +97,13 @@ export default class LabelData {
 
     getStyles(zoom) {
         zoom = LabelData.zoomRound(zoom);
-        const defaults = this.getLabelDefaults(zoom);
-        if (defaults) {
-            return {
-                className: defaults.className,
-                textSize: defaults.textSize
-            };
-        }
+        const {className: defaultClassName, textSize: defaultTextSize} = this.getLabelDefaults(zoom) || {};
+
         return {
-            className: this.parsedOptions.labelClassName && this.parsedOptions.labelClassName[zoom],
-            textSize: this.parsedOptions.labelTextSize && this.parsedOptions.labelTextSize[zoom],
+            className: this.parsedOptions.labelClassName && this.parsedOptions.labelClassName[zoom] ||
+                defaultClassName,
+            textSize: this.parsedOptions.labelTextSize && this.parsedOptions.labelTextSize[zoom] ||
+                defaultTextSize,
             textColor: this.parsedOptions.labelTextColor && this.parsedOptions.labelTextColor[zoom]
         };
     }
