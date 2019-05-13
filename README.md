@@ -243,6 +243,7 @@ Cursor type to be displayed when hovering over the small label.
 
 ### labelClassName
 CSS-class name to be applied to the label.
+**Important:** if you use *labelDefaults* option, *labelClassName* doesn't work.
 
 ```js
 // Apply "foo-class" to the label on the first zoom level,
