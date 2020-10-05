@@ -114,6 +114,8 @@ let state = polyLabeler.getLabelState(polygon);
 
 With map zoom change the state resets to default.
 
+In ObjectManager version of polylabeler state resets to default on any change within labels in vieport, i.e. on any zoom and almost on any drag. It's better to set `labelForceVisible` option to hide labels instead of updating state's `visible`.
+
 ```js
 const polyLabeler = new Polylabel(map, objectManager);
 let state = polyLabeler.getLabelState(polygon);
