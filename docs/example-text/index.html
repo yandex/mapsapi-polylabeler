@@ -44,14 +44,15 @@
         }
         ymaps.ready(['polylabel.create']).then(function () {
             window.map = new ymaps.Map('map', {
-                center: [62, 100],
-                zoom: 4,
+                center: [55.75254, 37.623082],
+                zoom: 7,
                 controls: ['searchControl', 'zoomControl']
             }, {
                 maxZoom: 18,
                 minZoom: 4,
                 searchControlProvider: 'yandex#search'
             });
+            ymaps.regions.settings.setBaseUrl('../res/data/');
             ymaps.regions.load('RU', {
                 lang: 'ru',
                 quality: 2

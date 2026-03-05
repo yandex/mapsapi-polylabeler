@@ -3,6 +3,7 @@
   "version": "1.0.2",
   "description": "",
   "scripts": {
+    "serve": "npx http-server -p 8080",
     "build": "grunt build",
     "lint": "eslint ."
   },
