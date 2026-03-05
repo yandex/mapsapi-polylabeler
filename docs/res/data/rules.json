@@ -1,0 +1,16 @@
+{
+    "qualities": ["2"],
+    "languages": ["en", "ru"],
+    "defaultLanguage": "en",
+    "rules": {
+        "1.0": {
+            "provinces": ["RU"],
+            "regions": {
+                "default": {
+                    "default": "RU",
+                    "variants": ["RU"]
+                }
+            }
+        }
+    }
+}
